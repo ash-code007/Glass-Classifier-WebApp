@@ -34,29 +34,34 @@ def main():
     option=st.sidebar.selectbox('Which model would you like to use?',activities)
     st.subheader(option)
 
-    ri=st.slider('Select % of Ri', 0.0, 100.0)
-    na=st.slider('Select % of Na', 0.0, 100.0)
-    mg=st.slider('Select % of Mg', 0.0, 100.0)
-    al=st.slider('Select % of Al', 0.0, 100.0)
-    si=st.slider('Select % of Si', 0.0, 100.0)
-    k =st.slider('Select % of K', 0.0, 100.0)
-    ca=st.slider('Select % of Ca', 0.0, 100.0)
-    ba=st.slider('Select % of Ba', 0.0, 100.0)
-    fe=st.slider('Select % of Fe', 0.0, 100.0)
+    ri=st.number_input('Select % of Ri', min_value=0, max_value=100,step=0.1)
+    
+    na=st.number_input('Select % of Na', min_value=0, max_value=100,step=0.1)
+    mg=st.number_input('Select % of Mg', min_value=0, max_value=100,step=0.1)
+    al=st.number_input('Select % of Al', min_value=0, max_value=100,step=0.1)
+    si=st.number_input('Select % of Si', min_value=0, max_value=100,step=0.1)
+    k =st.number_input('Select % of K',  min_value=0, max_value=100,step=0.1)
+    ca=st.number_input('Select % of Ca', min_value=0, max_value=100,step=0.1)
+    ba=st.number_input('Select % of Ba', min_value=0, max_value=100,step=0.1)
+    fe=st.number_input('Select % of Fe', min_value=0, max_value=100,step=0.1)
     
     inputs=[[ri,na,mg,al,si,k,ca,ba,fe]]
+    summation = ri+na+mg+al+si+k+ca+ba+fe
     
     if st.button('Classify'):
-        if option=='Logistic Regression':
-            st.success(classify(model_logis.predict(inputs)[0]))
-        elif option=='Decision Tree':
-            st.success(classify(model_dtree.predict(inputs)[0]))
-        elif option=='Random Forrest':
-            st.success(classify(model_forrest.predict(inputs)[0]))
-        elif option=='Support Vector':
-            st.success(classify(model_svc.predict(inputs)[0]))
+        if summation == 100:
+            if option=='Logistic Regression':
+                st.success(classify(model_logis.predict(inputs)[0]))
+            elif option=='Decision Tree':
+                st.success(classify(model_dtree.predict(inputs)[0]))
+            elif option=='Random Forrest':
+                st.success(classify(model_forrest.predict(inputs)[0]))
+            elif option=='Support Vector':
+                st.success(classify(model_svc.predict(inputs)[0]))
+            else: 
+                st.success(classify(model_knc.predict(inputs)[0]))
         else:
-            st.success(classify(model_knc.predict(inputs)[0]))
+            st.warning('Values must add up to 100 ! Try again.')
 
 if __name__=='__main__':
     main()
