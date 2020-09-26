@@ -34,16 +34,15 @@ def main():
     option=st.sidebar.selectbox('Which model would you like to use?',activities)
     st.subheader(option)
 
-    ri=st.number_input('Select % of Ri', min_value=0, max_value=100,step=0.1)
-    
-    na=st.number_input('Select % of Na', min_value=0, max_value=100,step=0.1)
-    mg=st.number_input('Select % of Mg', min_value=0, max_value=100,step=0.1)
-    al=st.number_input('Select % of Al', min_value=0, max_value=100,step=0.1)
-    si=st.number_input('Select % of Si', min_value=0, max_value=100,step=0.1)
-    k =st.number_input('Select % of K',  min_value=0, max_value=100,step=0.1)
-    ca=st.number_input('Select % of Ca', min_value=0, max_value=100,step=0.1)
-    ba=st.number_input('Select % of Ba', min_value=0, max_value=100,step=0.1)
-    fe=st.number_input('Select % of Fe', min_value=0, max_value=100,step=0.1)
+    ri=st.number_input('Select % of Ri', min_value=0.0, max_value=100.0,step=0.1)
+    na=st.number_input('Select % of Na', min_value=0.0, max_value=100.0,step=0.1)
+    mg=st.number_input('Select % of Mg', min_value=0.0, max_value=100.0,step=0.1)
+    al=st.number_input('Select % of Al', min_value=0.0, max_value=100.0,step=0.1)
+    si=st.number_input('Select % of Si', min_value=0.0, max_value=100.0,step=0.1)
+    k =st.number_input('Select % of K',  min_value=0.0, max_value=100.0,step=0.1)
+    ca=st.number_input('Select % of Ca', min_value=0.0, max_value=100.0,step=0.1)
+    ba=st.number_input('Select % of Ba', min_value=0.0, max_value=100.0,step=0.1)
+    fe=st.number_input('Select % of Fe', min_value=0.0, max_value=100.0,step=0.1)
     
     inputs=[[ri,na,mg,al,si,k,ca,ba,fe]]
     summation = ri+na+mg+al+si+k+ca+ba+fe
