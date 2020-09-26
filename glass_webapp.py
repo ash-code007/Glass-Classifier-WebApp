@@ -55,7 +55,7 @@ def main():
             st.success(classify(model_forrest.predict(inputs)[0]))
         elif option=='Support Vector':
             st.success(classify(model_svc.predict(inputs)[0]))
-        else 
+        else:
             st.success(classify(model_knc.predict(inputs)[0]))
 
 if __name__=='__main__':
